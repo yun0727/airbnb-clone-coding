@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "aribnb-clone-backend"
+version = "0.1.0"
+description = ""
+authors = ["yun <austru00@gmail.com>"]
+readme = "README.md"
+packages = [{include = "aribnb_clone_backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.2"
+pillow = "^9.5.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.17.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
