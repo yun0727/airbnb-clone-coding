@@ -10,6 +10,7 @@ packages = [{include = "aribnb_clone_backend"}]
 python = "^3.9"
 django = "^4.2"
 pillow = "^9.5.0"
+djangorestframework = "^3.14.0"
 
 
 [tool.poetry.group.dev.dependencies]
