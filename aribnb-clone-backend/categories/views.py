@@ -22,7 +22,7 @@ class Categories(APIView):
             return Response(serializer.errors)
 
 
-class Category(APIView):
+class CategoryDetail(APIView):
     def get_object(self, pk):
         try:
             return Category.objects.get(pk=pk)
