@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import serializers
+from .models import Review
 
-# Create your views here.
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = (
+            "user",
+            "payload",
+            "rating",
+        )
