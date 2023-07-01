@@ -1,32 +1,23 @@
-import { Box, Grid, HStack, Image, Text, VStack } from "@chakra-ui/react"
-import { FaStar } from "react-icons/fa"
+import { Grid } from "@chakra-ui/react"
+import Room from "../components/Room"
 
 export default function Home(){
   return( 
-  <Grid mt={10} px={40} columnGap={4} rowGap={8} templateColumns={"repeat(5, 1fr)"} >
-    <VStack alignItems={"flex-start"}>
-      <Box overflow={"hidden"} mb={3} rounded={"3xl"}>
-        <Image src="https://a0.muscache.com/im/pictures/miso/Hosting-10989371/original/46c0c87f-d9bc-443c-9b64-24d9e594b54c.jpeg?im_w=720" />     
-      </Box>
-      <Box>
-        <Grid gap={2} templateColumns={"6fr 1fr"}>
-          <Text as={"b"} noOfLines={1} fontSize={"md"}>
-            발렌시아(Valencia), 스페인
-          </Text>  
-          <HStack spacing={1}>
-            <FaStar size={15}/>
-            <Text>
-              5.0
-            </Text>
-          </HStack>
-        </Grid>
-      <Text fontSize={"sm"} color={"gray.600"}>
-        발렌시아(Valencia), 스페인
-      </Text>
-      </Box>
-      <Text fontSize={"sm"} color={"gray.600"}>
-        <Text as={"b"}>$72</Text> -/ night
-      </Text>
-    </VStack>
-  </Grid>)
+  <Grid 
+  mt={10} 
+  px={{base:10, lg:40,}} 
+  columnGap={4} 
+  rowGap={8} 
+  templateColumns={{
+    sm:"1fr", 
+    md:"1fr 1fr", 
+    lg:"repeat(3,1fr)", 
+    xl:"repeat(4,1fr)", 
+    "2xl":"repeat(5,1fr)" 
+    }} >
+    {[1,1,1,1,1,1,1].map(index => 
+      <Room key={index}/>
+      )}
+    
+    </Grid>)
 }
