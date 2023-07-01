@@ -1,35 +1,66 @@
-import { Box, Button, Grid, HStack, Image, Text, VStack,  useColorModeValue } from "@chakra-ui/react";
 import { FaRegHeart, FaStar } from "react-icons/fa";
+import {
+  Box,
+  Button,
+  Grid,
+  HStack,
+  Image,
+  Text,
+  useColorModeValue,
+  VStack,
+} from "@chakra-ui/react";
 
-export default function Room(){
-  const gray = useColorModeValue("gray.600", "gray.300")
-  return(
+interface IRoomProps {
+  imageUrl: string;
+  name: string;
+  rating: number;
+  city: string;
+  country: string;
+  price: number;
+}
+
+export default function Room({
+  imageUrl,
+  name,
+  rating,
+  city,
+  country,
+  price,
+}: IRoomProps) {
+  const gray = useColorModeValue("gray.600", "gray.300");
+  return (
     <VStack alignItems={"flex-start"}>
-      <Box position={"relative"} overflow={"hidden"} mb={3} rounded={"3xl"}>
-        <Image minH={"280"} src="https://a0.muscache.com/im/pictures/miso/Hosting-10989371/original/46c0c87f-d9bc-443c-9b64-24d9e594b54c.jpeg?im_w=720" />   
-        <Button variant={"unstyled"} position={"absolute"} top={0} right={0} color={"white"}>
-          <FaRegHeart size={"20px"}/>    
+      <Box position="relative" overflow={"hidden"} mb={3} rounded="2xl">
+        <Image minH="280" src={imageUrl} />
+        <Button
+          variant={"unstyled"}
+          position="absolute"
+          top={0}
+          right={0}
+          color="white"
+        >
+          <FaRegHeart size="20px" />
         </Button>
       </Box>
       <Box>
         <Grid gap={2} templateColumns={"6fr 1fr"}>
-          <Text as={"b"} noOfLines={1} fontSize={"md"}>
-            발렌시아(Valencia), 스페인
-          </Text>  
-          <HStack _hover={{color:"red.100"}} spacing={1}>
-            <FaStar size={15}/>
-            <Text>
-              5.0
-            </Text>
+          <Text display={"block"} as="b" noOfLines={1} fontSize="md">
+            {name}
+          </Text>
+
+          <HStack spacing={1} alignItems="center">
+            <FaStar size={12} />
+            <Text fontSize={"sm"}>{rating}</Text>
           </HStack>
         </Grid>
-      <Text fontSize={"sm"} color={gray}>
-        발렌시아(Valencia), 스페인
-      </Text>
+        <Text fontSize={"sm"} color={gray}>
+          Seoul, S. Korea
+          {city}, {country}
+        </Text>
       </Box>
       <Text fontSize={"sm"} color={gray}>
-        <Text as={"b"}>$72</Text> -/ night
+        <Text as="b">${price}</Text> / night
       </Text>
     </VStack>
-  )
+  );
 }
