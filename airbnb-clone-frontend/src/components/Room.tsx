@@ -16,7 +16,7 @@ export default function Room(){
           <Text as={"b"} noOfLines={1} fontSize={"md"}>
             발렌시아(Valencia), 스페인
           </Text>  
-          <HStack spacing={1}>
+          <HStack _hover={{color:"red.100"}} spacing={1}>
             <FaStar size={15}/>
             <Text>
               5.0
